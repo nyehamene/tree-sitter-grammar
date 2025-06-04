@@ -39,3 +39,17 @@ name: foo
 		name: (identifier)
 		(body
 			(identifier))))
+
+=========================
+non terminal (reference)
+=========================
+
+name: $foo
+
+-------------------------
+
+(source_file
+	(production_definition
+		name: (identifier)
+		(body
+			(identifier))))

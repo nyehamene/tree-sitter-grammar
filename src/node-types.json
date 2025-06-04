@@ -12,10 +12,6 @@
           "named": true
         },
         {
-          "type": "external_identifier",
-          "named": true
-        },
-        {
           "type": "group",
           "named": true
         },
@@ -52,10 +48,6 @@
       "types": [
         {
           "type": "alternative",
-          "named": true
-        },
-        {
-          "type": "external_identifier",
           "named": true
         },
         {
@@ -98,10 +90,6 @@
           "named": true
         },
         {
-          "type": "external_identifier",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
@@ -126,10 +114,6 @@
       "types": [
         {
           "type": "alternative",
-          "named": true
-        },
-        {
-          "type": "external_identifier",
           "named": true
         },
         {
@@ -194,10 +178,6 @@
           "named": true
         },
         {
-          "type": "external_identifier",
-          "named": true
-        },
-        {
           "type": "group",
           "named": true
         },
@@ -240,10 +220,6 @@
     "type": "comment",
     "named": true,
     "extra": true
-  },
-  {
-    "type": "external_identifier",
-    "named": true
   },
   {
     "type": "identifier",

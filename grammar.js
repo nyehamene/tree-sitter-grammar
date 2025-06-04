@@ -64,11 +64,9 @@ module.exports = grammar({
       )
     ),
 
-    _nonterminal: $ => choice($.identifier, $.external_identifier),
+    _nonterminal: $ => choice($.identifier),
 
-    identifier: _ => /[a-z][A-Za-z_0-9]*/,
-
-    external_identifier: _ => token.immediate(seq("$", /[a-z][A-Za-z_0-9]*/)),
+    identifier: _ => token(seq(optional(field("open", "$")), /[a-z][A-Za-z_0-9]*/)),
 
     comment: _ => token(
       seq(field("open", "//"),
