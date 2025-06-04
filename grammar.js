@@ -26,17 +26,38 @@ module.exports = grammar({
     _production: $ => repeat1($._option),
     
     _option: $ => choice(
-      seq("[", alias(repeat1($._repeatition), $.option), "]"),
+      alias(
+        seq(
+          alias(field("open","["), "open"),
+          repeat1($._repeatition),
+          alias(field("close", "]"), "close")
+        ),
+        $.option
+      ),
       $._repeatition,
     ),
 
     _repeatition: $ => choice(
-      seq("{", alias(repeat1($._group), $.repeatition ), "}"),
+      alias(
+        seq(
+          alias(field("open","{"), "open"),
+          repeat1($._group),
+          alias(field("close","}"), "close"),
+        ),
+        $.repeatition
+      ),
       $._group,
     ),
 
     _group: $ => choice(
-      seq("(", alias(repeat1($._alternative), $.group), ")"),
+      alias(
+        seq(
+          alias(field("open","("), "open"),
+          repeat1($._alternative),
+          alias(field("close",")"), "close"),
+        ),
+        $.group
+      ),
       $._alternative
     ),
 

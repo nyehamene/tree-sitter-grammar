@@ -3,79 +3,133 @@
     "type": "alternative",
     "named": true,
     "fields": {
-      "left": {
-        "multiple": false,
+      "close": {
+        "multiple": true,
         "required": false,
         "types": [
           {
+            "type": "close",
+            "named": false
+          }
+        ]
+      },
+      "left": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
             "type": "alternative",
+            "named": true
+          },
+          {
+            "type": "close",
+            "named": false
+          },
+          {
+            "type": "group",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "open",
+            "named": false
+          },
+          {
+            "type": "option",
+            "named": true
+          },
+          {
+            "type": "regexp",
+            "named": true
+          },
+          {
+            "type": "repeatition",
+            "named": true
+          },
+          {
+            "type": "string",
             "named": true
           }
         ]
       },
-      "right": {
-        "multiple": false,
+      "open": {
+        "multiple": true,
         "required": false,
+        "types": [
+          {
+            "type": "open",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": true,
+        "required": true,
         "types": [
           {
             "type": "alternative",
             "named": true
+          },
+          {
+            "type": "close",
+            "named": false
+          },
+          {
+            "type": "group",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "open",
+            "named": false
+          },
+          {
+            "type": "option",
+            "named": true
+          },
+          {
+            "type": "regexp",
+            "named": true
+          },
+          {
+            "type": "repeatition",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "group",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "option",
-          "named": true
-        },
-        {
-          "type": "regexp",
-          "named": true
-        },
-        {
-          "type": "repeatition",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
     }
   },
   {
     "type": "body",
     "named": true,
     "fields": {
-      "left": {
+      "close": {
         "multiple": true,
         "required": false,
         "types": [
           {
-            "type": "alternative",
-            "named": true
+            "type": "close",
+            "named": false
           }
         ]
       },
-      "right": {
+      "open": {
         "multiple": true,
         "required": false,
         "types": [
           {
-            "type": "alternative",
-            "named": true
+            "type": "open",
+            "named": false
           }
         ]
       }
@@ -84,6 +138,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "alternative",
+          "named": true
+        },
         {
           "type": "group",
           "named": true
@@ -114,32 +172,15 @@
   {
     "type": "group",
     "named": true,
-    "fields": {
-      "left": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "alternative",
-            "named": true
-          }
-        ]
-      },
-      "right": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "alternative",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "alternative",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
@@ -159,31 +200,35 @@
     "type": "option",
     "named": true,
     "fields": {
-      "left": {
+      "close": {
         "multiple": true,
         "required": false,
         "types": [
           {
-            "type": "alternative",
-            "named": true
+            "type": "close",
+            "named": false
           }
         ]
       },
-      "right": {
+      "open": {
         "multiple": true,
         "required": false,
         "types": [
           {
-            "type": "alternative",
-            "named": true
+            "type": "open",
+            "named": false
           }
         ]
       }
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "alternative",
+          "named": true
+        },
         {
           "type": "group",
           "named": true
@@ -237,31 +282,35 @@
     "type": "repeatition",
     "named": true,
     "fields": {
-      "left": {
+      "close": {
         "multiple": true,
         "required": false,
         "types": [
           {
-            "type": "alternative",
-            "named": true
+            "type": "close",
+            "named": false
           }
         ]
       },
-      "right": {
+      "open": {
         "multiple": true,
         "required": false,
         "types": [
           {
-            "type": "alternative",
-            "named": true
+            "type": "open",
+            "named": false
           }
         ]
       }
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "alternative",
+          "named": true
+        },
         {
           "type": "group",
           "named": true
@@ -298,23 +347,11 @@
     }
   },
   {
-    "type": "(",
-    "named": false
-  },
-  {
-    "type": ")",
-    "named": false
-  },
-  {
     "type": ":",
     "named": false
   },
   {
-    "type": "[",
-    "named": false
-  },
-  {
-    "type": "]",
+    "type": "close",
     "named": false
   },
   {
@@ -327,6 +364,10 @@
     "named": true
   },
   {
+    "type": "open",
+    "named": false
+  },
+  {
     "type": "regexp",
     "named": true
   },
@@ -337,13 +378,5 @@
   {
     "type": "string",
     "named": true
-  },
-  {
-    "type": "{",
-    "named": false
-  },
-  {
-    "type": "}",
-    "named": false
   }
 ]
