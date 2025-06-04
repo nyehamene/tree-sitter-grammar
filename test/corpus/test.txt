@@ -25,3 +25,17 @@ name: /foo/
 		name: (identifier)
 		(body
 			(regexp))))
+
+=========================
+non terminal (identifier)
+=========================
+
+name: foo
+
+-------------------------
+
+(source_file
+	(production_definition
+		name: (identifier)
+		(body
+			(identifier))))
