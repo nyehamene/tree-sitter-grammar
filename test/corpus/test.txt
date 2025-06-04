@@ -106,3 +106,21 @@ name: { "foo" /foo/ foo $foo }
 				(regexp)
 				(identifier)
 				(identifier)))))
+
+=========================
+group
+=========================
+
+name: ( "foo" /foo/ foo $foo )
+
+-------------------------
+
+(source_file
+	(production_definition
+		name: (identifier)
+		(body
+			(group
+				(string)
+				(regexp)
+				(identifier)
+				(identifier)))))
