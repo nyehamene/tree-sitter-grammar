@@ -17,13 +17,13 @@ module.exports = grammar({
   rules: {
     source_file: $ => repeat($.production_definition),
 
-    production_definition: $ => prec.left(seq(
+    production_definition: $ => seq(
       field("name", $.identifier),
       token(":"),
       alias($._production, $.body)
-    )),
+    ),
 
-    _production: $ => repeat1($._option),
+    _production: $ => seq(repeat1($._option), ";"),
     
     _option: $ => choice(
       alias(

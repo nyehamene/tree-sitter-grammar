@@ -2,7 +2,7 @@
 terminal (string)
 =================
 
-name: "foo"
+name: "foo";
 
 -----------------
 
@@ -16,7 +16,7 @@ name: "foo"
 terminal (regexp)
 =================
 
-name: /foo/
+name: /foo/;
 
 -----------------
 
@@ -30,7 +30,7 @@ name: /foo/
 non terminal (identifier)
 =========================
 
-name: foo
+name: foo;
 
 -------------------------
 
@@ -44,7 +44,7 @@ name: foo
 non terminal (reference)
 =========================
 
-name: $foo
+name: $foo;
 
 -------------------------
 
@@ -58,7 +58,7 @@ name: $foo
 sequence
 =========================
 
-name: "foo" foo $foo /foo/
+name: "foo" foo $foo /foo/;
 
 -------------------------
 
@@ -75,7 +75,7 @@ name: "foo" foo $foo /foo/
 option
 =========================
 
-name: [ "foo" /foo/ foo $foo ]
+name: [ "foo" /foo/ foo $foo ];
 
 -------------------------
 
@@ -93,7 +93,7 @@ name: [ "foo" /foo/ foo $foo ]
 repeatition
 =========================
 
-name: { "foo" /foo/ foo $foo }
+name: { "foo" /foo/ foo $foo };
 
 -------------------------
 
@@ -111,7 +111,7 @@ name: { "foo" /foo/ foo $foo }
 group
 =========================
 
-name: ( "foo" /foo/ foo $foo )
+name: ( "foo" /foo/ foo $foo );
 
 -------------------------
 
@@ -129,7 +129,7 @@ name: ( "foo" /foo/ foo $foo )
 alternative
 =========================
 
-name: "foo" | /foo/ | foo | $foo
+name: "foo" | /foo/ | foo | $foo;
 
 -------------------------
 
