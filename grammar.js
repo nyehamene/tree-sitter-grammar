@@ -31,7 +31,7 @@ module.exports = grammar({
     ),
 
     _repeatition: $ => choice(
-      alias(seq("{", $._group, "}"), $.repeatition),
+      seq("{", alias(repeat1($._group), $.repeatition ), "}"),
       $._group,
     ),
 

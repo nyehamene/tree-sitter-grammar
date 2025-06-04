@@ -89,3 +89,20 @@ name: [ "foo" /foo/ foo $foo ]
 				(identifier)
 				(identifier)))))
 
+=========================
+repeatition
+=========================
+
+name: { "foo" /foo/ foo $foo }
+
+-------------------------
+
+(source_file
+	(production_definition
+		name: (identifier)
+		(body
+			(repeatition
+				(string)
+				(regexp)
+				(identifier)
+				(identifier)))))
