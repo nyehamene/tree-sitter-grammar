@@ -164,16 +164,29 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "_option"
+                  "type": "FIELD",
+                  "name": "left",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_option"
+                  }
                 },
                 {
-                  "type": "STRING",
-                  "value": "|"
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "STRING",
+                    "value": "|"
+                  },
+                  "named": false,
+                  "value": "separator"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "_option"
+                  "type": "FIELD",
+                  "name": "right",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_option"
+                  }
                 }
               ]
             },

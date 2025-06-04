@@ -17,7 +17,7 @@ module.exports = grammar({
   rules: {
     source_file: $ => repeat($.production_definition),
 
-    production_definition: $ => prec.right(seq(
+    production_definition: $ => prec.left(seq(
       field("name", $.identifier),
       token(":"),
       alias($._production, $.body)
@@ -40,11 +40,20 @@ module.exports = grammar({
       $._alternative
     ),
 
-    _alternative: $ => prec.left(choice(
-      alias(seq($._option, "|", $._option), $.alternative),
+    _alternative: $ => choice(
+      $.alternative,
       $._terminal,
       $._nonterminal
-    )),
+    ),
+
+    alternative: $ => 
+        prec.right(
+          seq(
+            field("left", $._option),
+            alias("|", "separator"),
+            field("right", $._option)
+          )
+        ),
 
     _terminal: $ => choice($.string, $.regexp),
 

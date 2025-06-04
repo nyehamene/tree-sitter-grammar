@@ -1,1 +1,1 @@
-name: {"foo" /foo/ foo $foo}
+name: "foo" | /foo/ | foo | $foo

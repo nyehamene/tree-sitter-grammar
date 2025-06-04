@@ -124,3 +124,23 @@ name: ( "foo" /foo/ foo $foo )
 				(regexp)
 				(identifier)
 				(identifier)))))
+
+=========================
+alternative
+=========================
+
+name: "foo" | /foo/ | foo | $foo
+
+-------------------------
+
+(source_file
+	(production_definition
+		name: (identifier)
+		(body
+			(alternative
+				left: (string)
+				right: (alternative
+					left: (regexp)
+					right: (alternative
+						left: (identifier)
+						right: (identifier)))))))
