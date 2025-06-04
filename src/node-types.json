@@ -1,12 +1,260 @@
 [
   {
+    "type": "alternative",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alternative",
+          "named": true
+        },
+        {
+          "type": "external_identifier",
+          "named": true
+        },
+        {
+          "type": "group",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "option",
+          "named": true
+        },
+        {
+          "type": "regexp",
+          "named": true
+        },
+        {
+          "type": "repeatition",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alternative",
+          "named": true
+        },
+        {
+          "type": "external_identifier",
+          "named": true
+        },
+        {
+          "type": "group",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "option",
+          "named": true
+        },
+        {
+          "type": "regexp",
+          "named": true
+        },
+        {
+          "type": "repeatition",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "group",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alternative",
+          "named": true
+        },
+        {
+          "type": "external_identifier",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "regexp",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "option",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alternative",
+          "named": true
+        },
+        {
+          "type": "external_identifier",
+          "named": true
+        },
+        {
+          "type": "group",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "regexp",
+          "named": true
+        },
+        {
+          "type": "repeatition",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "production_definition",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "repeatition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alternative",
+          "named": true
+        },
+        {
+          "type": "external_identifier",
+          "named": true
+        },
+        {
+          "type": "group",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "regexp",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "root": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "production_definition",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "hello",
+    "type": ":",
     "named": false
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "external_identifier",
+    "named": true
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "regexp",
+    "named": true
+  },
+  {
+    "type": "string",
+    "named": true
   }
 ]

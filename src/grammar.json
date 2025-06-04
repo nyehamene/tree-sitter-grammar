@@ -1,13 +1,312 @@
 {
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
-  "name": "LOWER_PARSER_NAME",
+  "name": "grammar",
+  "word": "identifier",
   "rules": {
     "source_file": {
-      "type": "STRING",
-      "value": "hello"
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "production_definition"
+      }
+    },
+    "production_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ":"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_production"
+          },
+          "named": true,
+          "value": "body"
+        }
+      ]
+    },
+    "_production": {
+      "type": "SYMBOL",
+      "name": "_option"
+    },
+    "_option": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_repeatition"
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          },
+          "named": true,
+          "value": "option"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_repeatition"
+        }
+      ]
+    },
+    "_repeatition": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "{"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_group"
+              },
+              {
+                "type": "STRING",
+                "value": "}"
+              }
+            ]
+          },
+          "named": true,
+          "value": "repeatition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_group"
+        }
+      ]
+    },
+    "_group": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "("
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_alternative"
+              },
+              {
+                "type": "STRING",
+                "value": ")"
+              }
+            ]
+          },
+          "named": true,
+          "value": "group"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_alternative"
+        }
+      ]
+    },
+    "_alternative": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_production"
+                },
+                {
+                  "type": "STRING",
+                  "value": "|"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_production"
+                }
+              ]
+            },
+            "named": true,
+            "value": "alternative"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_terminal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_nonterminal"
+          }
+        ]
+      }
+    },
+    "_terminal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "regexp"
+        }
+      ]
+    },
+    "string": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "open",
+            "content": {
+              "type": "STRING",
+              "value": "\""
+            }
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\"]*"
+          },
+          {
+            "type": "FIELD",
+            "name": "close",
+            "content": {
+              "type": "STRING",
+              "value": "\""
+            }
+          }
+        ]
+      }
+    },
+    "regexp": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "open",
+            "content": {
+              "type": "STRING",
+              "value": "/"
+            }
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^//]*"
+          },
+          {
+            "type": "FIELD",
+            "name": "close",
+            "content": {
+              "type": "STRING",
+              "value": "/"
+            }
+          }
+        ]
+      }
+    },
+    "_nonterminal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "external_identifier"
+        }
+      ]
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-z][A-Za-z_0-9]*"
+    },
+    "external_identifier": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "$"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[a-z][A-Za-z_0-9]*"
+          }
+        ]
+      }
+    },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "open",
+            "content": {
+              "type": "STRING",
+              "value": "//"
+            }
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\\n]*"
+          },
+          {
+            "type": "STRING",
+            "value": "\n"
+          }
+        ]
+      }
     }
   },
   "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    },
     {
       "type": "PATTERN",
       "value": "\\s"
