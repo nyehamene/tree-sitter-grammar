@@ -71,3 +71,21 @@ name: "foo" foo $foo /foo/
 			(identifier)
 			(regexp))))
 
+=========================
+option
+=========================
+
+name: [ "foo" /foo/ foo $foo ]
+
+-------------------------
+
+(source_file
+	(production_definition
+		name: (identifier)
+		(body
+			(option
+				(string)
+				(regexp)
+				(identifier)
+				(identifier)))))
+

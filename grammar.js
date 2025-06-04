@@ -26,7 +26,7 @@ module.exports = grammar({
     _production: $ => repeat1($._option),
     
     _option: $ => choice(
-      alias(seq("[", $._repeatition, "]"), $.option),
+      seq("[", alias(repeat1($._repeatition), $.option), "]"),
       $._repeatition,
     ),
 
