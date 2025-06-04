@@ -53,3 +53,21 @@ name: $foo
 		name: (identifier)
 		(body
 			(identifier))))
+
+=========================
+sequence
+=========================
+
+name: "foo" foo $foo /foo/
+
+-------------------------
+
+(source_file
+	(production_definition
+		name: (identifier)
+		(body
+			(string)
+			(identifier)
+			(identifier)
+			(regexp))))
+
