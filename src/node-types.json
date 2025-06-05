@@ -3,16 +3,6 @@
     "type": "alternative",
     "named": true,
     "fields": {
-      "close": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "close",
-            "named": false
-          }
-        ]
-      },
       "left": {
         "multiple": true,
         "required": true,
@@ -22,20 +12,12 @@
             "named": true
           },
           {
-            "type": "close",
-            "named": false
-          },
-          {
             "type": "group",
             "named": true
           },
           {
             "type": "identifier",
             "named": true
-          },
-          {
-            "type": "open",
-            "named": false
           },
           {
             "type": "option",
@@ -55,16 +37,6 @@
           }
         ]
       },
-      "open": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "open",
-            "named": false
-          }
-        ]
-      },
       "right": {
         "multiple": true,
         "required": true,
@@ -74,20 +46,12 @@
             "named": true
           },
           {
-            "type": "close",
-            "named": false
-          },
-          {
             "type": "group",
             "named": true
           },
           {
             "type": "identifier",
             "named": true
-          },
-          {
-            "type": "open",
-            "named": false
           },
           {
             "type": "option",
@@ -112,10 +76,49 @@
   {
     "type": "body",
     "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alternative",
+          "named": true
+        },
+        {
+          "type": "group",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "option",
+          "named": true
+        },
+        {
+          "type": "regexp",
+          "named": true
+        },
+        {
+          "type": "repeatition",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "group",
+    "named": true,
     "fields": {
       "close": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
             "type": "close",
@@ -124,8 +127,8 @@
         ]
       },
       "open": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
             "type": "open",
@@ -170,39 +173,12 @@
     }
   },
   {
-    "type": "group",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "alternative",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "regexp",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "option",
     "named": true,
     "fields": {
       "close": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
             "type": "close",
@@ -211,8 +187,8 @@
         ]
       },
       "open": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
             "type": "open",
@@ -235,6 +211,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "option",
           "named": true
         },
         {
@@ -283,8 +263,8 @@
     "named": true,
     "fields": {
       "close": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
             "type": "close",
@@ -293,8 +273,8 @@
         ]
       },
       "open": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
             "type": "open",
@@ -320,7 +300,15 @@
           "named": true
         },
         {
+          "type": "option",
+          "named": true
+        },
+        {
           "type": "regexp",
+          "named": true
+        },
+        {
+          "type": "repeatition",
           "named": true
         },
         {

@@ -7,6 +7,8 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
+const alternativePrec = 2;
+
 module.exports = grammar({
   name: "grammar",
 
@@ -20,61 +22,47 @@ module.exports = grammar({
     production_definition: $ => seq(
       field("name", $.identifier),
       token(":"),
-      alias($._production, $.body)
+      alias($._production, $.body),
+      token(";")
     ),
 
-    _production: $ => seq(repeat1($._option), ";"),
+    _production: $ => repeat1(
+      choice(
+        $.option,
+        $.repeatition,
+        $.group,
+        $.alternative,
+        $._terminal,
+        $._nonterminal
+      )
+    ),
     
-    _option: $ => choice(
-      alias(
-        seq(
-          alias(field("open","["), "open"),
-          repeat1($._repeatition),
-          alias(field("close", "]"), "close")
-        ),
-        $.option
-      ),
-      $._repeatition,
+    option: $ => seq(
+      alias(field("open","["), "open"),
+      $._production,
+      alias(field("close", "]"), "close")
     ),
 
-    _repeatition: $ => choice(
-      alias(
-        seq(
-          alias(field("open","{"), "open"),
-          repeat1($._group),
-          alias(field("close","}"), "close"),
-        ),
-        $.repeatition
-      ),
-      $._group,
+    repeatition: $ => seq(
+      alias(field("open","{"), "open"),
+      $._production,
+      alias(field("close","}"), "close"),
     ),
 
-    _group: $ => choice(
-      alias(
-        seq(
-          alias(field("open","("), "open"),
-          repeat1($._alternative),
-          alias(field("close",")"), "close"),
-        ),
-        $.group
-      ),
-      $._alternative
+    group: $ => seq(
+      alias(field("open","("), "open"),
+      $._production,
+      alias(field("close",")"), "close"),
     ),
 
-    _alternative: $ => choice(
-      $.alternative,
-      $._terminal,
-      $._nonterminal
+    alternative: $ => prec.right(
+      alternativePrec,
+      seq(
+        field("left", $._production),
+        alias("|", "separator"),
+        field("right", $._production)
+      )
     ),
-
-    alternative: $ => 
-        prec.right(
-          seq(
-            field("left", $._option),
-            alias("|", "separator"),
-            field("right", $._option)
-          )
-        ),
 
     _terminal: $ => choice($.string, $.regexp),
 

@@ -144,3 +144,37 @@ name: "foo" | /foo/ | foo | $foo;
 					right: (alternative
 						left: (identifier)
 						right: (identifier)))))))
+
+=========================
+many (1)
+=========================
+
+name: ( { [ foo ] } );
+
+-------------------------
+
+(source_file
+	(production_definition
+		name: (identifier)
+		(body
+			(group
+				(repeatition
+					(option
+						(identifier)))))))
+
+=========================
+many (2)
+=========================
+
+name: [ ( { foo } ) ];
+
+-------------------------
+
+(source_file
+	(production_definition
+		name: (identifier)
+		(body
+			(option
+				(group
+					(repeatition
+						(identifier)))))))
