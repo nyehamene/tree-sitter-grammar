@@ -1,0 +1,7 @@
+name: foo "foo" $foo /foo/;
+// ^ meta.function
+// ^ function
+//    ^ variable.function
+//         ^ string
+//              ^ variable.function.global
+//                    ^ regexp
