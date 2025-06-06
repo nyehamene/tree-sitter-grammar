@@ -21,9 +21,9 @@ module.exports = grammar({
 
     production_definition: $ => seq(
       field("name", $.identifier),
-      token(":"),
+      ":",
       alias($._production, $.body),
-      token(";")
+      ";"
     ),
 
     _production: $ => repeat1(
@@ -47,7 +47,7 @@ module.exports = grammar({
       alternativePrec,
       seq(
         field("left", $._production),
-        alias("|", "separator"),
+        "|",
         field("right", $._production)
       )
     ),

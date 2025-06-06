@@ -22,11 +22,8 @@
           }
         },
         {
-          "type": "TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": ":"
-          }
+          "type": "STRING",
+          "value": ":"
         },
         {
           "type": "ALIAS",
@@ -38,11 +35,8 @@
           "value": "body"
         },
         {
-          "type": "TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": ";"
-          }
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },
@@ -144,13 +138,8 @@
             }
           },
           {
-            "type": "ALIAS",
-            "content": {
-              "type": "STRING",
-              "value": "|"
-            },
-            "named": false,
-            "value": "separator"
+            "type": "STRING",
+            "value": "|"
           },
           {
             "type": "FIELD",

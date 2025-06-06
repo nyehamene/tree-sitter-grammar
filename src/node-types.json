@@ -309,15 +309,15 @@
     "named": true
   },
   {
-    "type": "separator",
-    "named": false
-  },
-  {
     "type": "string",
     "named": true
   },
   {
     "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
     "named": false
   },
   {

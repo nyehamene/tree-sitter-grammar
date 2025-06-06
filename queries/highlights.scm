@@ -12,7 +12,7 @@
   "}"
 ] @punctuation.bracket
 
-[ ":" ";" ] @punctuation.delimiter
+[ ":" ";" "|" ] @punctuation.delimiter
 
 (regexp) @string.regexp
 
