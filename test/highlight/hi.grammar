@@ -7,3 +7,6 @@ name: foo "foo" $foo /foo/;
 //                        ^ punctuation.delimiter
 //  ^ punctuation.delimiter
 // @@@@ definition.function
+
+// a comment
+// ^^^^^^^^^ comment
