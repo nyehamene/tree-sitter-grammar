@@ -37,23 +37,11 @@ module.exports = grammar({
       )
     ),
     
-    option: $ => seq(
-      alias(field("open","["), "open"),
-      $._production,
-      alias(field("close", "]"), "close")
-    ),
+    option: $ => seq("[", $._production, "]"),
 
-    repeatition: $ => seq(
-      alias(field("open","{"), "open"),
-      $._production,
-      alias(field("close","}"), "close"),
-    ),
+    repeatition: $ => seq("{", $._production, "}"),
 
-    group: $ => seq(
-      alias(field("open","("), "open"),
-      $._production,
-      alias(field("close",")"), "close"),
-    ),
+    group: $ => seq("(", $._production, ")"),
 
     alternative: $ => prec.right(
       alternativePrec,
@@ -66,29 +54,14 @@ module.exports = grammar({
 
     _terminal: $ => choice($.string, $.regexp),
 
-    string: _ => token(
-      seq(
-        field("open", '"'),
-        /[^"]*/,
-        field("close", '"')
-      )
-    ),
+    string: _ => token(seq('"', /[^"]*/, '"')),
 
-    regexp: _ => token(
-      seq(
-        field("open", "/"),
-        /[^//]*/,
-        field("close", "/")
-      )
-    ),
+    regexp: _ => token(seq("/", /[^//]*/, "/")),
 
     _nonterminal: $ => choice($.identifier),
 
-    identifier: _ => token(seq(optional(field("open", "$")), /[a-z][A-Za-z_0-9]*/)),
+    identifier: _ => token(seq(optional("$"), /[a-zA-Z][A-Za-z_0-9]*/)),
 
-    comment: _ => token(
-      seq(field("open", "//"),
-      /[^\n]*/, "\n")
-     ),
+    comment: _ => token(seq("//", /[^\n]*/, "\n")),
   }
 });

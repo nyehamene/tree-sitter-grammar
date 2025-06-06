@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "grammar",
   "word": "identifier",
   "rules": {
@@ -81,34 +82,16 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "FIELD",
-            "name": "open",
-            "content": {
-              "type": "STRING",
-              "value": "["
-            }
-          },
-          "named": false,
-          "value": "open"
+          "type": "STRING",
+          "value": "["
         },
         {
           "type": "SYMBOL",
           "name": "_production"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "FIELD",
-            "name": "close",
-            "content": {
-              "type": "STRING",
-              "value": "]"
-            }
-          },
-          "named": false,
-          "value": "close"
+          "type": "STRING",
+          "value": "]"
         }
       ]
     },
@@ -116,34 +99,16 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "FIELD",
-            "name": "open",
-            "content": {
-              "type": "STRING",
-              "value": "{"
-            }
-          },
-          "named": false,
-          "value": "open"
+          "type": "STRING",
+          "value": "{"
         },
         {
           "type": "SYMBOL",
           "name": "_production"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "FIELD",
-            "name": "close",
-            "content": {
-              "type": "STRING",
-              "value": "}"
-            }
-          },
-          "named": false,
-          "value": "close"
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },
@@ -151,34 +116,16 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "FIELD",
-            "name": "open",
-            "content": {
-              "type": "STRING",
-              "value": "("
-            }
-          },
-          "named": false,
-          "value": "open"
+          "type": "STRING",
+          "value": "("
         },
         {
           "type": "SYMBOL",
           "name": "_production"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "FIELD",
-            "name": "close",
-            "content": {
-              "type": "STRING",
-              "value": ")"
-            }
-          },
-          "named": false,
-          "value": "close"
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },
@@ -235,24 +182,16 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "FIELD",
-            "name": "open",
-            "content": {
-              "type": "STRING",
-              "value": "\""
-            }
+            "type": "STRING",
+            "value": "\""
           },
           {
             "type": "PATTERN",
             "value": "[^\"]*"
           },
           {
-            "type": "FIELD",
-            "name": "close",
-            "content": {
-              "type": "STRING",
-              "value": "\""
-            }
+            "type": "STRING",
+            "value": "\""
           }
         ]
       }
@@ -263,24 +202,16 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "FIELD",
-            "name": "open",
-            "content": {
-              "type": "STRING",
-              "value": "/"
-            }
+            "type": "STRING",
+            "value": "/"
           },
           {
             "type": "PATTERN",
             "value": "[^//]*"
           },
           {
-            "type": "FIELD",
-            "name": "close",
-            "content": {
-              "type": "STRING",
-              "value": "/"
-            }
+            "type": "STRING",
+            "value": "/"
           }
         ]
       }
@@ -303,12 +234,8 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "FIELD",
-                "name": "open",
-                "content": {
-                  "type": "STRING",
-                  "value": "$"
-                }
+                "type": "STRING",
+                "value": "$"
               },
               {
                 "type": "BLANK"
@@ -317,7 +244,7 @@
           },
           {
             "type": "PATTERN",
-            "value": "[a-z][A-Za-z_0-9]*"
+            "value": "[a-zA-Z][A-Za-z_0-9]*"
           }
         ]
       }
@@ -328,12 +255,8 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "FIELD",
-            "name": "open",
-            "content": {
-              "type": "STRING",
-              "value": "//"
-            }
+            "type": "STRING",
+            "value": "//"
           },
           {
             "type": "PATTERN",
@@ -361,5 +284,6 @@
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }

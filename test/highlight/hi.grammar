@@ -1,7 +1,9 @@
 name: foo "foo" $foo /foo/;
-// ^ meta.function
-// ^ function
-//    ^ variable.function
-//         ^ string
-//              ^ variable.function.global
-//                    ^ regexp
+// ^ function.definition
+//    ^^^ variable.function
+//         ^^^^ string.quoted.double
+//              ^^^^ variable.function.global
+//                   ^^^^^ string.regexp
+//                        ^ punctuation.delimiter
+//  ^ punctuation.delimiter
+// @@@@ definition.function

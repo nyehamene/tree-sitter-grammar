@@ -2,4 +2,5 @@
 
 (production_definition name: (identifier) @local.definition)
 
-(identifier !open) @local.reference
+((identifier) @name
+ (#match? @name "^\$")) @local.reference

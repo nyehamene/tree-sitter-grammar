@@ -1,19 +1,31 @@
-(production_definition
-  name: (identifier) @entity.name.function
-  ) @function
+; """ @punctuation.string
+; "$" @punctuation.function.global
+; "//" @punctuation.comment
+; "/" @punctuation.regexp
 
-(regexp
-  ; open: "/" @punctuation.definition.regexp.begin
-  ; close: "/" @punctuation.definition.regexp.end
-  ) @string.regexp
+[
+  "("
+  ")"
+  "["
+  "]"
+  "{"
+  "}"
+] @punctuation.bracket
 
-(string
-  ; open: "\"" @punctuation.definition.string.begin
-  ; close: "\"" @punctuation.definition.string.end
-  ) @string.quoted.double
+[ ":" ";" ] @punctuation.delimiter
 
-(identifier !open) @variable.function
+(regexp) @string.regexp
 
-(identifier open: "$") @variable.function.global
+(string) @string.quoted.double
+
+(identifier) @variable.function
+
+((identifier) @variable.function.global
+ (#match? @variable.function.global "^\\$.*")) 
 
 (comment) @comment
+
+(production_definition
+  name: (identifier) @function.definition)
+
+(production_definition) @meta.function
