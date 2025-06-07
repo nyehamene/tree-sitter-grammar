@@ -1,10 +1,11 @@
 name: foo "foo" $foo /foo/;
 // ^ function.definition
-//    ^^^ variable.function
+//    ^^^ function
 //         ^^^^ string.quoted.double
-//              ^^^^ variable.function.global
+//              ^^^^ function.external
 //                   ^^^^^ string.regexp
 //                        ^ punctuation.delimiter
+//              ^ punctuation.function.call
 //  ^ punctuation.delimiter
 // @@@@ definition.function
 

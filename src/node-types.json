@@ -20,6 +20,10 @@
             "named": true
           },
           {
+            "type": "identifier_extern",
+            "named": true
+          },
+          {
             "type": "option",
             "named": true
           },
@@ -51,6 +55,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "identifier_extern",
             "named": true
           },
           {
@@ -94,6 +102,10 @@
           "named": true
         },
         {
+          "type": "identifier_extern",
+          "named": true
+        },
+        {
           "type": "option",
           "named": true
         },
@@ -133,6 +145,10 @@
           "named": true
         },
         {
+          "type": "identifier_extern",
+          "named": true
+        },
+        {
           "type": "option",
           "named": true
         },
@@ -152,6 +168,11 @@
     }
   },
   {
+    "type": "identifier_extern",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "option",
     "named": true,
     "fields": {},
@@ -169,6 +190,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "identifier_extern",
           "named": true
         },
         {
@@ -237,6 +262,10 @@
           "named": true
         },
         {
+          "type": "identifier_extern",
+          "named": true
+        },
+        {
           "type": "option",
           "named": true
         },
@@ -272,6 +301,10 @@
     }
   },
   {
+    "type": "$",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -299,6 +332,10 @@
     "type": "comment",
     "named": true,
     "extra": true
+  },
+  {
+    "type": "id",
+    "named": false
   },
   {
     "type": "identifier",

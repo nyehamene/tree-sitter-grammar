@@ -1,5 +1,4 @@
 ; """ @punctuation.string
-; "$" @punctuation.function.global
 ; "//" @punctuation.comment
 ; "/" @punctuation.regexp
 
@@ -18,10 +17,11 @@
 
 (string) @string.quoted.double
 
-(identifier) @variable.function
+(identifier) @function
 
-((identifier) @variable.function.global
- (#match? @variable.function.global "^\\$.*")) 
+(identifier_extern) @function.external
+
+(identifier_extern "$" @punctuation.function.call)
 
 (comment) @comment
 

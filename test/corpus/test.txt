@@ -52,7 +52,7 @@ name: $foo;
 	(production_definition
 		name: (identifier)
 		(body
-			(identifier))))
+			(identifier_extern))))
 
 =========================
 sequence
@@ -68,7 +68,7 @@ name: "foo" foo $foo /foo/;
 		(body
 			(string)
 			(identifier)
-			(identifier)
+			(identifier_extern)
 			(regexp))))
 
 =========================
@@ -87,7 +87,7 @@ name: [ "foo" /foo/ foo $foo ];
 				(string)
 				(regexp)
 				(identifier)
-				(identifier)))))
+				(identifier_extern)))))
 
 =========================
 repeatition
@@ -105,7 +105,7 @@ name: { "foo" /foo/ foo $foo };
 				(string)
 				(regexp)
 				(identifier)
-				(identifier)))))
+				(identifier_extern)))))
 
 =========================
 group
@@ -123,7 +123,7 @@ name: ( "foo" /foo/ foo $foo );
 				(string)
 				(regexp)
 				(identifier)
-				(identifier)))))
+				(identifier_extern)))))
 
 =========================
 alternative
@@ -143,7 +143,7 @@ name: "foo" | /foo/ | foo | $foo;
 					left: (regexp)
 					right: (alternative
 						left: (identifier)
-						right: (identifier)))))))
+						right: (identifier_extern)))))))
 
 =========================
 many (1)

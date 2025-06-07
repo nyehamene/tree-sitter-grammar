@@ -21,7 +21,7 @@ module.exports = grammar({
 
     production_definition: $ => seq(
       field("name", $.identifier),
-      ":",
+      token.immediate(":"),
       alias($._production, $.body),
       ";"
     ),
@@ -58,9 +58,11 @@ module.exports = grammar({
 
     regexp: _ => token(seq("/", /[^//]*/, "/")),
 
-    _nonterminal: $ => choice($.identifier),
+    _nonterminal: $ => choice($.identifier, $.identifier_extern),
 
-    identifier: _ => token(seq(optional("$"), /[a-zA-Z][A-Za-z_0-9]*/)),
+    identifier: _ => /[a-zA-Z][A-Za-z_0-9]*/,
+
+    identifier_extern: $ => seq("$", token.immediate(/[^\s\n]/), alias($.identifier, "id")),
 
     comment: _ => token(seq("//", /[^\n]*/, "\n")),
   }

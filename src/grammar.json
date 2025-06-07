@@ -22,8 +22,11 @@
           }
         },
         {
-          "type": "STRING",
-          "value": ":"
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ":"
+          }
         },
         {
           "type": "ALIAS",
@@ -211,32 +214,41 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier_extern"
         }
       ]
     },
     "identifier": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "$"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
+      "type": "PATTERN",
+      "value": "[a-zA-Z][A-Za-z_0-9]*"
+    },
+    "identifier_extern": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "$"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
             "type": "PATTERN",
-            "value": "[a-zA-Z][A-Za-z_0-9]*"
+            "value": "[^\\s\\n]"
           }
-        ]
-      }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          "named": false,
+          "value": "id"
+        }
+      ]
     },
     "comment": {
       "type": "TOKEN",
