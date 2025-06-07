@@ -9,8 +9,7 @@ name: "foo";
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(string))))
+		(string)))
 
 =================
 terminal (regexp)
@@ -23,8 +22,7 @@ name: /foo/;
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(regexp))))
+		(regexp)))
 
 =========================
 non terminal (identifier)
@@ -37,8 +35,7 @@ name: foo;
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(identifier))))
+		(identifier)))
 
 =========================
 non terminal (reference)
@@ -51,8 +48,7 @@ name: $foo;
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(identifier_extern))))
+		(identifier_extern)))
 
 =========================
 sequence
@@ -65,11 +61,10 @@ name: "foo" foo $foo /foo/;
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(string)
-			(identifier)
-			(identifier_extern)
-			(regexp))))
+		(string)
+		(identifier)
+		(identifier_extern)
+		(regexp)))
 
 =========================
 option
@@ -82,12 +77,11 @@ name: [ "foo" /foo/ foo $foo ];
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(option
-				(string)
-				(regexp)
-				(identifier)
-				(identifier_extern)))))
+		(option
+			(string)
+			(regexp)
+			(identifier)
+			(identifier_extern))))
 
 =========================
 repeatition
@@ -100,12 +94,11 @@ name: { "foo" /foo/ foo $foo };
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(repeatition
-				(string)
-				(regexp)
-				(identifier)
-				(identifier_extern)))))
+		(repeatition
+			(string)
+			(regexp)
+			(identifier)
+			(identifier_extern))))
 
 =========================
 group
@@ -118,12 +111,11 @@ name: ( "foo" /foo/ foo $foo );
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(group
-				(string)
-				(regexp)
-				(identifier)
-				(identifier_extern)))))
+		(group
+			(string)
+			(regexp)
+			(identifier)
+			(identifier_extern))))
 
 =========================
 alternative
@@ -136,14 +128,13 @@ name: "foo" | /foo/ | foo | $foo;
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(alternative
-				left: (string)
+		(alternative
+			left: (string)
+			right: (alternative
+				left: (regexp)
 				right: (alternative
-					left: (regexp)
-					right: (alternative
-						left: (identifier)
-						right: (identifier_extern)))))))
+					left: (identifier)
+					right: (identifier_extern))))))
 
 =========================
 many (1)
@@ -156,11 +147,10 @@ name: ( { [ foo ] } );
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(group
-				(repeatition
-					(option
-						(identifier)))))))
+		(group
+			(repeatition
+				(option
+					(identifier))))))
 
 =========================
 many (2)
@@ -173,8 +163,7 @@ name: [ ( { foo } ) ];
 (source_file
 	(production_definition
 		name: (identifier)
-		(body
-			(option
-				(group
-					(repeatition
-						(identifier)))))))
+		(option
+			(group
+				(repeatition
+					(identifier))))))

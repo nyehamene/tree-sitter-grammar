@@ -22,7 +22,7 @@ module.exports = grammar({
     production_definition: $ => seq(
       field("name", $.identifier),
       token.immediate(":"),
-      alias($._production, $.body),
+      $._production,
       ";"
     ),
 
