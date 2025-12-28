@@ -63,7 +63,8 @@ module.exports = grammar({
 
     _terminal: $ => choice(
       $.string,
-      $.regexp
+      $.regexp,
+      $.external_value
     ),
 
     member_access: $ => prec.left(2, seq(
@@ -79,8 +80,33 @@ module.exports = grammar({
       ')'
     ),
 
-    string: $ => token(seq('"', /[^"\n]*/, '"')),
+    string: $ => seq(
+      '"',
+      repeat(choice(
+        $.string_content,
+        $.escape_sequence
+      )),
+      '"'
+    ),
+    string_content: $ => token.immediate(/[^"\\n\\]+/),
+
+    regexp: $ => seq(
+      '/',
+      repeat(choice(
+        $.regexp_content,
+        $.escape_sequence
+      )),
+      '/'
+    ),
+    regexp_content: $ => token.immediate(/[^/\\]+/),
+
+    escape_sequence: $ => token.immediate(/\\./),
+
     ident: $ => token(/[a-zA-Z_][a-zA-Z0-9_]*/),
-    regexp: $ => token(seq('/', /[^\/]*/, '/'))
+
+    external_value: $ => seq(
+      '$',
+      $.ident
+    )
   }
 });

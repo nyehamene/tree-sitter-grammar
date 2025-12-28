@@ -11,9 +11,10 @@ my_ref = object.property_access;
 //        ^ reference.class
 //               ^ reference.call
 
-another_rule = some_value object.property;
+another_rule = some_value object.property $foo;
 // <- definition.method
 //                  ^ reference.call
 //                        ^ reference.class
 //                               ^ reference.call
+//                                        ^ reference.call
 

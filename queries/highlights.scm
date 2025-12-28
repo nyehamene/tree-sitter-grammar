@@ -23,7 +23,6 @@
 (binding
   name: (ident) @namespace)
 
-
 ;; Member access identifiers
 (member_access
   object: (ident) @variable)
@@ -33,6 +32,7 @@
 ;; Literals
 (string) @string
 (regexp) @string.regexp
+(external) @special
 
 ;; Comments
 (comment) @comment

@@ -12,5 +12,8 @@ other = foo.bar { "a" } [ "b" ];
 //      ^ variable
 //          ^ variable
 
+more = $foo;
+//     ^ special
+
 // This is a comment
 // ^ comment
