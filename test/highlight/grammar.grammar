@@ -1,0 +1,16 @@
+my_binding = @import("other");
+// ^ namespace
+//           ^ keyword
+//                   ^ string
+
+my_rule = "a" | /b/;
+// ^ variable.other.member
+//        ^ string
+//               ^ string.regexp
+
+other = foo.bar { "a" } [ "b" ];
+//      ^ variable
+//          ^ variable
+
+// This is a comment
+// ^ comment

@@ -10,7 +10,8 @@
         "grammar"
       ],
       "injection-regex": "^grammar$",
-      "class-name": "TreeSitterGrammar"
+      "class-name": "TreeSitterGrammar",
+      "highlights": "queries/highlights.scm"
     }
   ],
   "metadata": {
