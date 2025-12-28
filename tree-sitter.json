@@ -1,0 +1,42 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "grammar",
+      "camelcase": "Grammar",
+      "title": "Grammar",
+      "scope": "source.grammar",
+      "file-types": [
+        "grammar"
+      ],
+      "injection-regex": "^grammar$",
+      "class-name": "TreeSitterGrammar"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Grammar grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "nyehamene",
+        "email": "chikwenyehamene@gmail.com",
+        "url": ""
+      }
+    ],
+    "links": {
+      "repository": "github.com/better-tools/grammar",
+      "funding": ""
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "java": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": true
+  }
+}

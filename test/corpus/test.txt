@@ -1,0 +1,100 @@
+===
+Rule Declaration
+===
+
+my_rule = "a" "b";
+---
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (string)
+          (string))))))
+
+===
+Rule with choice
+===
+
+my_rule = "a" | "b";
+---
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (production
+          (sequence
+            (string)))
+        (sequence
+          (string))))))
+
+===
+Rule with sequence
+===
+
+my_rule = "a" "b" "c";
+---
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (string)
+          (string)
+          (string))))))
+
+===
+Binding
+===
+
+my_binding = @import("path/to/file");
+---
+(source
+  (declaration
+    (binding
+      name: (ident)
+      value: (import_directive
+        path: (string)))))
+
+===
+Comment
+===
+
+// this is a comment
+---
+(source
+  (declaration
+    (comment)))
+
+===
+Complex Rule
+===
+
+complex_rule = { "a" | "b" } [ "c" ] ( d . e );
+---
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (repetition
+            content: (production
+              (production
+                (sequence
+                  (string)))
+              (sequence
+                (string))))
+          (optional
+            content: (production
+              (sequence
+                (string))))
+          (group
+            content: (production
+              (sequence
+                (member_access
+                  object: (ident)
+                  property: (ident))))))))))

@@ -1,0 +1,15 @@
+node_modules/
+bindings/
+binding*
+Package*
+package*
+py*
+build*
+CMake*
+Cargo.toml
+pom.xml
+go.mod
+Makefile
+*.py
+*.so
+*.json
