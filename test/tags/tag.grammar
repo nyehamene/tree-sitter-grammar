@@ -1,0 +1,19 @@
+binding_def = @import("path");
+// <- reference.class
+
+rule_def = "a";
+// <- definition.method
+
+some_rule = other_rule;
+//               ^ reference.call
+
+my_ref = object.property_access;
+//        ^ reference.class
+//               ^ reference.call
+
+another_rule = some_value object.property;
+// <- definition.method
+//                  ^ reference.call
+//                        ^ reference.class
+//                               ^ reference.call
+
