@@ -83,12 +83,12 @@ module.exports = grammar({
     string: $ => seq(
       '"',
       repeat(choice(
-        $.string_content,
+        $._string_content,
         $.escape_sequence
       )),
       '"'
     ),
-    string_content: $ => token.immediate(/[^"\\n\\]+/),
+    _string_content: $ => token.immediate(/[^"\n\\]+/),
 
     regexp: $ => seq(
       '/',
@@ -98,7 +98,7 @@ module.exports = grammar({
       )),
       '/'
     ),
-    regexp_content: $ => token.immediate(/[^/\\]+/),
+    regexp_content: $ => token.immediate(/[^\/\\]+/),
 
     escape_sequence: $ => token.immediate(/\\./),
 
