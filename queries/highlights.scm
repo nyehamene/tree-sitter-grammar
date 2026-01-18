@@ -32,7 +32,8 @@
 ;; Literals
 (string) @string
 (regexp) @string.regexp
-(external) @special
+(external_value) @special
+(escape_sequence) @constant.character.escape
 
 ;; Comments
 (comment) @comment
