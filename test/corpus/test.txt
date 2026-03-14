@@ -4,6 +4,7 @@ Rule Declaration
 
 my_rule = "a" "b";
 ---
+
 (source
   (declaration
     (rule
@@ -19,6 +20,7 @@ Rule with choice
 
 my_rule = "a" | "b";
 ---
+
 (source
   (declaration
     (rule
@@ -36,6 +38,7 @@ Rule with sequence
 
 my_rule = "a" "b" "c";
 ---
+
 (source
   (declaration
     (rule
@@ -52,11 +55,14 @@ Binding
 
 my_binding = @import("path/to/file");
 ---
+
 (source
   (declaration
     (binding
       name: (ident)
-      value: (import_directive
+      value: (directive
+        (directive_ident
+          (ident))
         path: (string)))))
 
 ===
@@ -65,6 +71,7 @@ Comment
 
 // this is a comment
 ---
+
 (source
   (declaration
     (comment)))
@@ -75,6 +82,7 @@ Complex Rule
 
 complex_rule = { "a" | "b" } [ "c" ] ( d . e );
 ---
+
 (source
   (declaration
     (rule

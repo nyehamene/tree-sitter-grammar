@@ -42,8 +42,8 @@
 (repetition) @repetition.outer
 
 ;; The argument of an import
-(import_directive (string) @import.inner)
-(import_directive) @import.outer
+(directive (string) @import.inner)
+(binding (directive)) @import.outer
 
 ;; A single production in a list of productions
 (production (sequence) @item.inner)

@@ -1,8 +1,5 @@
 ;; Highlights for the grammar language
 
-;; Keywords
-"@import" @keyword
-
 ;; Operators and punctuation
 "=" @operator
 "|" @operator
@@ -14,6 +11,8 @@
 "]" @punctuation.bracket
 "{" @punctuation.bracket
 "}" @punctuation.bracket
+
+(directive_ident) @keyword
 
 ;; Rule names (as fields, as requested)
 (rule

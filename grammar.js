@@ -20,7 +20,7 @@ module.exports = grammar({
     binding: $ => seq(
       field('name', $.ident),
       '=',
-      field('value', $.import_directive),
+      field('value', $.directive),
       ';'
     ),
 
@@ -52,8 +52,8 @@ module.exports = grammar({
     optional: $ => seq('[', field('content', $.production), ']'),
 
     _term: $ => choice(
-        $._terminal,
-        $._non_terminal
+      $._terminal,
+      $._non_terminal
     ),
 
     _non_terminal: $ => choice(
@@ -73,11 +73,16 @@ module.exports = grammar({
       field('property', $.ident)
     )),
 
-    import_directive: $ => seq(
-      '@import',
-      '(' ,
+    directive: $ => seq(
+      $.directive_ident,
+      '(',
       field('path', $.string),
       ')'
+    ),
+
+    directive_ident: $ => seq(
+      choice('@', '#'),
+      $.ident,
     ),
 
     string: $ => seq(
