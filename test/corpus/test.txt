@@ -15,6 +15,79 @@ my_rule = "a" "b";
           (string))))))
 
 ===
+External Value with dollar sign
+===
+
+my_rule = $foo;
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (external_value
+            (ident)))))))
+
+===
+External Value with angle brackets
+===
+
+my_rule = <bar>;
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (external_value
+            (ident)))))))
+
+===
+External Value in sequence
+===
+
+my_rule = "a" $foo "b";
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (string)
+          (external_value
+            (ident))
+          (string))))))
+
+===
+External Value in group
+===
+
+my_rule = ( $foo | <bar> );
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (group
+            content: (production
+              (production
+                (sequence
+                  (external_value
+                    (ident))))
+              (sequence
+                (external_value
+                  (ident))))))))))
+
+===
 Rule with choice
 ===
 

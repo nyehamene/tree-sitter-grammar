@@ -109,9 +109,9 @@ module.exports = grammar({
 
     ident: $ => token(/[a-zA-Z_][a-zA-Z0-9_]*/),
 
-    external_value: $ => seq(
-      '$',
-      $.ident
+    external_value: $ => choice(
+      seq('$',$.ident),
+      seq("<", $.ident, ">"),
     )
   }
 });
