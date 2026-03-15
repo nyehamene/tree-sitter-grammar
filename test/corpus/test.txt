@@ -1,20 +1,4 @@
 ===
-Rule Declaration
-===
-
-my_rule = "a" "b";
----
-
-(source
-  (declaration
-    (rule
-      name: (ident)
-      body: (production
-        (sequence
-          (string)
-          (string))))))
-
-===
 External Value with dollar sign
 ===
 
@@ -148,6 +132,199 @@ Comment
 (source
   (declaration
     (comment)))
+
+===
+Binding with hash directive
+===
+
+my_binding = #include("path/to/file");
+---
+
+(source
+  (declaration
+    (binding
+      name: (ident)
+      value: (directive
+        (directive_ident
+          (ident))
+        path: (string)))))
+
+===
+Regexp
+===
+
+my_rule = /[a-z]+/;
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (regexp
+            (regexp_content)))))))
+
+===
+String with escape sequence
+===
+
+my_rule = "hello\nworld";
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (string
+            (escape_sequence)))))))
+
+===
+Regexp with escape sequence
+===
+
+my_rule = /a\/b/;
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (regexp
+            (regexp_content)
+            (escape_sequence)
+            (regexp_content)))))))
+
+===
+Non-terminal reference
+===
+
+my_rule = other_rule;
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (ident))))))
+
+===
+Member access
+===
+
+my_rule = obj.prop;
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (member_access
+            object: (ident)
+            property: (ident)))))))
+
+===
+Nested member access
+===
+
+my_rule = a.b.c;
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (member_access
+            object: (member_access
+              object: (ident)
+              property: (ident))
+            property: (ident)))))))
+
+===
+Optional
+===
+
+my_rule = [ "a" ];
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (optional
+            content: (production
+              (sequence
+                (string)))))))))
+
+===
+Repetition
+===
+
+my_rule = { "a" };
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (repetition
+            content: (production
+              (sequence
+                (string)))))))))
+
+===
+Group
+===
+
+my_rule = ( "a" "b" );
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (sequence
+          (group
+            content: (production
+              (sequence
+                (string)
+                (string)))))))))
+
+===
+Nested alternations
+===
+
+my_rule = "a" | "b" | "c";
+---
+
+(source
+  (declaration
+    (rule
+      name: (ident)
+      body: (production
+        (production
+          (production
+            (sequence
+              (string)))
+          (sequence
+            (string)))
+        (sequence
+          (string))))))
 
 ===
 Complex Rule
